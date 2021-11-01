@@ -1,0 +1,26 @@
+api_platform:
+    title: 'Template API'
+    # The description of the API.
+    description: 'API description'
+    # The version of the API.
+    # @todo: Update The description documentation of the doc
+    version: '0.0.0'
+    swagger:
+        api_keys:
+            apiKey:
+                name: Authorization
+                type: header
+    mapping:
+        paths: ['%kernel.project_dir%/src/Entity']
+    patch_formats:
+        json: [ 'application/json' ]
+#        json: ['application/merge-patch+json']
+    formats:
+        jsonld: [ 'application/ld+json' ]
+        jsonhal: [ 'application/hal+json' ]
+        jsonapi: [ 'application/vnd.api+json' ]
+        json: [ 'application/json' ]
+        xml: [ 'application/xml', 'text/xml' ]
+        yaml: [ 'application/x-yaml' ]
+        csv: [ 'text/csv' ]
+        html: [ 'text/html' ]

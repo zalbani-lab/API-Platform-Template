@@ -1,0 +1,32 @@
+# symfony/framework-bundle
+.*
+!.env.example
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
+/vendor/
+
+# lexik/jwt-authentication-bundle
+/config/jwt/*.pem
+
+# symfony/phpunit-bridge
+.phpunit
+.phpunit.result.cache
+/phpunit.xml
+
+# git
+.env
+!.gitignore
+
+# public/images
+/public/media/*
+
+###> squizlabs/php_codesniffer ###
+/.phpcs-cache
+/phpcs.xml
+###< squizlabs/php_codesniffer ###
+
+###> friendsofphp/php-cs-fixer ###
+/.php_cs
+/.php_cs.cache
+###< friendsofphp/php-cs-fixer ###

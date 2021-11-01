@@ -1,0 +1,6 @@
+{
+  "URL": "http://127.0.0.1:8000/api",
+  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2MzU1MjAzMjksImV4cCI6MTYzNTg4MDMyOSwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFkbWluQG1haWwuY29tIiwiY3JlYXRlZEF0Ijp7ImRhdGUiOiIyMDIxLTA5LTIwIDE0OjQxOjI5LjAwMDAwMCIsInRpbWV6b25lX3R5cGUiOjMsInRpbWV6b25lIjoiRXVyb3BlL0JlcmxpbiJ9fQ.cvBAYnNZ9iC2CN__Ox0fJnF2FY_oKBlbUCHDJvUrp-CfD7rt9bGbhpuYgPnqP4hZcmkOene2JAhaDmQs1zciT0qMqlRykClsQj9jjt6-Yt0iGcyO50IyFpHQWk1PQyVkmlAE0PLHBLm1WguTqhY0t0vWcJNpEf_S8-YoxabFw5uuVSP2HPII4-cl5P3peBImzQsPvyzhgGyMhk4IirTF3F4gykCTWH053_vACFwqCxm5CQoFhivXPlbqI7QyCnllePBrkzRw-Xw1vlxcUruJ-ZKv8h8xdt9f0Cm3NGIMoI_F_DnDhbkP5Ym5hEvpXZHw-6QBeRXotEO96A6bMsIKhA",
+  "content-type": "application/json",
+  "accept": "application/json"
+}
