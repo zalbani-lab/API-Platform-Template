@@ -1,0 +1,1473 @@
+{
+	"info": {
+		"_postman_id": "a22fb42c-31dc-43f4-8df8-e4a523639734",
+		"name": "Template API Platform",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CRUD",
+			"item": [
+				{
+					"name": "Animations",
+					"item": [
+						{
+							"name": "Get all animation",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "{{accept}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "{{content-type}}"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/animations",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"animations"
+									],
+									"query": [
+										{
+											"key": "users",
+											"value": "/api/users/5895",
+											"disabled": true
+										},
+										{
+											"key": "title",
+											"value": "test",
+											"disabled": true
+										},
+										{
+											"key": "id",
+											"value": "6506",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Post one animation",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "{{accept}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "{{content-type}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"test\",\n  \"shortDescription\": \"test\",\n  \"longDescription\": \"test\",\n  \"publicationDate\": \"2008-06-18 06:49:37\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/animations",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"animations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get one animation",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "{{accept}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "{{content-type}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/animations/11",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"animations",
+										"11"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Put one animation",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "{{accept}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "{{content-type}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"type\": \"/api/types/3\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/animations/1964",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"animations",
+										"1964"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Patch one animation",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "{{accept}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "{{content-type}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"type\": \"api/types/1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/animations/1855",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"animations",
+										"1855"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete one animation",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "{{accept}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "{{content-type}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"modifier\",\n  \"shortDescription\": \"modifier\",\n  \"longDescription\": \"modifier\"\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/animations/120",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"animations",
+										"120"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "Get all users",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "{{accept}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "{{content-type}}"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/users?email=.com",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"users"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": ".com"
+										},
+										{
+											"key": "exists[updatedAt]",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "order[updatedAt]",
+											"value": "asc",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Post one user",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "{{accept}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "{{content-type}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"ayayayayayaya@gmail.com\",\n    \"password\": \"[C|+-rZ\\\"+<\\\\Nc3vTOCd\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/users",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get one user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "{{accept}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "{{content-type}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/users/345",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"users",
+										"345"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Put one user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "{{content-type}}",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "{{accept}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"admin@mail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/users/345",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"users",
+										"345"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Patch one user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "{{content-type}}",
+										"disabled": true
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "{{accept}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"admin@mail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/users/345",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"users",
+										"345"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete one user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "{{content-type}}"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "{{accept}}"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/users/3609",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"users",
+										"3609"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Medias",
+					"item": [
+						{
+							"name": "Get all medias",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/media",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"media"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "11",
+											"disabled": true
+										},
+										{
+											"key": "title",
+											"value": "Titre",
+											"disabled": true
+										},
+										{
+											"key": "order[createdAt]",
+											"value": "desc",
+											"disabled": true
+										},
+										{
+											"key": "target",
+											"value": "Target",
+											"disabled": true
+										},
+										{
+											"key": "legend",
+											"value": "Leg",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Post one media",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"contentType": "",
+											"type": "file",
+											"src": "/home/zalbani/Pictures/julien-kaspar-finalcomp-720p.jpg"
+										},
+										{
+											"key": "title",
+											"value": "test",
+											"type": "text"
+										},
+										{
+											"key": "legend",
+											"value": "test",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URL}}/media",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"media"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get one media",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/media/8",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"media",
+										"8"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Put one media ",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/home/zalbani/Pictures/Ydays/logo.png"
+										},
+										{
+											"key": "title",
+											"value": "Tchao",
+											"type": "text"
+										},
+										{
+											"key": "target",
+											"value": "Slt",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/media/8?_method=PUT",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"media",
+										"8"
+									],
+									"query": [
+										{
+											"key": "_method",
+											"value": "PUT"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Patch one media",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"new title\",\n  \"legend\": \"new wqdasx\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/media/8",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"media",
+										"8"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete one media",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/media/5",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"media",
+										"5"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Logs",
+					"item": [
+						{
+							"name": "Get all logs",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "{{accept}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "{{content-type}}"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/logs",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"logs"
+									],
+									"query": [
+										{
+											"key": "level",
+											"value": "2",
+											"disabled": true
+										},
+										{
+											"key": "targetElement",
+											"value": "media",
+											"disabled": true
+										},
+										{
+											"key": "targetId",
+											"value": "4091",
+											"disabled": true
+										},
+										{
+											"key": "author",
+											"value": "3519",
+											"disabled": true
+										},
+										{
+											"key": "method",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get one log",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "{{accept}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "{{content-type}}"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/logs/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"logs",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Email",
+					"item": [
+						{
+							"name": "Get all emails",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "{{accept}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "{{content-type}}"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/emails",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"emails"
+									],
+									"query": [
+										{
+											"key": "level",
+											"value": "2",
+											"disabled": true
+										},
+										{
+											"key": "targetElement",
+											"value": "media",
+											"disabled": true
+										},
+										{
+											"key": "targetId",
+											"value": "4091",
+											"disabled": true
+										},
+										{
+											"key": "author",
+											"value": "3519",
+											"disabled": true
+										},
+										{
+											"key": "method",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Post email",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "{{accept}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "{{content-type}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"recipient\": \"pro.pierson.alban@gmail.com\",\n  \"subject\": \"last test befor push\",\n  \"content\": \"<h2>Infos utilisateur</h2> <br/> id : 2<hr/><h2>Infos pages</h2> <br/> page en cours d'utilisation : /content/programs/1<hr/><h2>Message de l'utilisateur</h2> <br/> hell\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/emails",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"emails"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get one email",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "{{accept}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "{{content-type}}"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/emails/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"emails",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Custom",
+			"item": [
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "Get current user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "{{content-type}}",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "{{accept}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/users/current",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"users",
+										"current"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Change Role",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "{{accept}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "{{content-type}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"roles\": [\"ROLE_ADMIN\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/users/295/updateRole",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"users",
+										"295",
+										"updateRole"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Animation",
+					"item": [
+						{
+							"name": "Subscribe to animation",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "{{accept}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "{{content-type}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/public/animations/1964/triggerSubscribtion?userId=382",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"public",
+										"animations",
+										"1964",
+										"triggerSubscribtion"
+									],
+									"query": [
+										{
+											"key": "userId",
+											"value": "382"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Publish animation",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "{{accept}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "{{content-type}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/animations/1231/publish",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"animations",
+										"1231",
+										"publish"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "unPublish animation",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "{{accept}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "{{content-type}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/animations/1228/unPublish",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"animations",
+										"1228",
+										"unPublish"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Reset password",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "{{accept}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "{{content-type}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/public/forgottenPasswords?email=aya@gmail.com",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"public",
+								"forgottenPasswords"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "aya@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "{{accept}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "{{content-type}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"admin@mail.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
