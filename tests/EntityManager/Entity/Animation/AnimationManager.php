@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Tests\EntityManager\Entity\Animation;
 
 use App\Entity\Animation;
+use App\Entity\User;
 use App\Tests\EntityManager\TestEntityManagerInterface;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;

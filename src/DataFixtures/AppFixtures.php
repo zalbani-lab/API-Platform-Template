@@ -57,7 +57,7 @@ class AppFixtures extends Fixture implements DependentFixtureInterface
     private function createAnimations(User $userAuthor, int $animationNumber): void
     {
         for ($j = 0; $j < $animationNumber; ++$j) {
-            $Animation = (new Animation())->addContributor($userAuthor)
+            $Animation = (new Animation())->setAuthor($userAuthor)
                 ->setImage($this->getARandomMedia())
                 ->setTitle($this->faker->text(20))
                 ->setShortDescription($this->faker->realText(100))

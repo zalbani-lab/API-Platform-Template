@@ -27,6 +27,6 @@ class AnimationCreation implements ModifierInterface
     }
     private function addAuthor(Animation $animation): void
     {
-        $animation->addContributor($this->user);
+        $animation->setAuthor($this->user);
     }
 }

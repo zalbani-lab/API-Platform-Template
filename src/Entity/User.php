@@ -109,12 +109,18 @@ class User implements UserInterface
      */
     private Collection $contributions;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Animation::class, mappedBy="author")
+     */
+    private Collection $animations;
+
     public function __construct()
     {
         $this->contributions = new ArrayCollection();
         $this->setRoles(['ROLE_USER']);
 
         $this->createdAt = new \DateTimeImmutable();
+        $this->animations = new ArrayCollection();
     }
 
     public function getEmail(): ?string
@@ -212,6 +218,36 @@ class User implements UserInterface
     {
         if ($this->contributions->removeElement($animation)) {
             $animation->removeContributor($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Animation[]
+     */
+    public function getAnimations(): Collection
+    {
+        return $this->animations;
+    }
+
+    public function addAnimation(Animation $animation): self
+    {
+        if (!$this->animations->contains($animation)) {
+            $this->animations[] = $animation;
+            $animation->setAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAnimation(Animation $animation): self
+    {
+        if ($this->animations->removeElement($animation)) {
+            // set the owning side to null (unless already changed)
+            if ($animation->getAuthor() === $this) {
+                $animation->setAuthor(null);
+            }
         }
 
         return $this;

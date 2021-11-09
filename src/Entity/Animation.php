@@ -98,12 +98,18 @@ class Animation
      */
     private ?\DateTimeInterface $dateEnd;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="animations", cascade={"persist"})
+     */
+    private ?User $author;
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
         $this->contributors = new ArrayCollection();
         $this->dateStart = null;
         $this->dateEnd = null;
+        $this->author = null;
     }
 
     public function getTitle(): ?string
@@ -199,6 +205,18 @@ class Animation
     public function setDateEnd(?\DateTimeInterface $dateEnd): self
     {
         $this->dateEnd = $dateEnd;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?User $author): self
+    {
+        $this->author = $author;
 
         return $this;
     }
