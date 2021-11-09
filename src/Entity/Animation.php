@@ -100,6 +100,7 @@ class Animation
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="animations", cascade={"persist"})
+     * @Groups({"animationRead"})
      */
     private ?User $author;
 

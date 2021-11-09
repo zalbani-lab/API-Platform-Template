@@ -111,6 +111,7 @@ class User implements UserInterface
 
     /**
      * @ORM\OneToMany(targetEntity=Animation::class, mappedBy="author")
+     * @Groups({"userDetailRead"})
      */
     private Collection $animations;
 
