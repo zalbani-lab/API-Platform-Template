@@ -73,10 +73,10 @@ class Animation
     private string $longDescription;
 
     /**
-     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="animations",  cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="contributions",  cascade={"persist"})
      * @Groups({"animationDetailRead"})
      */
-    private Collection $users;
+    private Collection $contributors;
 
 
     /**
@@ -101,7 +101,7 @@ class Animation
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
-        $this->users = new ArrayCollection();
+        $this->contributors = new ArrayCollection();
         $this->dateStart = null;
         $this->dateEnd = null;
     }
@@ -145,23 +145,23 @@ class Animation
     /**
      * @return Collection|User[]
      */
-    public function getUsers(): Collection
+    public function getContributors(): Collection
     {
-        return $this->users;
+        return $this->contributors;
     }
 
-    public function addUser(User $user): self
+    public function addContributor(User $user): self
     {
-        if (!$this->users->contains($user)) {
-            $this->users[] = $user;
+        if (!$this->contributors->contains($user)) {
+            $this->contributors[] = $user;
         }
 
         return $this;
     }
 
-    public function removeUser(User $user): self
+    public function removeContributor(User $user): self
     {
-        $this->users->removeElement($user);
+        $this->contributors->removeElement($user);
 
         return $this;
     }

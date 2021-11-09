@@ -44,7 +44,7 @@ class AnimationUpdater implements ModifierInterface
     private function addUserToTheAnimation(Animation $animation): void
     {
         if (null !== $this->user) {
-            $animation->addUser($this->user);
+            $animation->addContributor($this->user);
             $this->user->setUpdatedAt(new \DateTimeImmutable());
         }
     }

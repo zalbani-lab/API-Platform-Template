@@ -68,11 +68,11 @@ class UserTest extends TestCase
     {
         $nb_occur = random_int(3, 12);
         for ($i = 0; $i < $nb_occur; ++$i) {
-            $response = $this->user->addAnimation($this->createFakeAnimation());
+            $response = $this->user->addContributions($this->createFakeAnimation());
         }
 
         self::assertInstanceOf(User::class, $response);
-        self::assertCount($nb_occur, $this->user->getAnimations());
+        self::assertCount($nb_occur, $this->user->getContributions());
     }
 
     /**
@@ -83,16 +83,16 @@ class UserTest extends TestCase
     {
         $value = $this->createFakeAnimation();
 
-        $response = $this->user->addAnimation($value);
+        $response = $this->user->addContributions($value);
 
         self::assertInstanceOf(User::class, $response);
-        self::assertCount(1, $this->user->getAnimations());
-        self::assertTrue($this->user->getAnimations()->contains($value));
+        self::assertCount(1, $this->user->getContributions());
+        self::assertTrue($this->user->getContributions()->contains($value));
 
-        $response = $this->user->removeAnimation($value);
+        $response = $this->user->removeContributions($value);
         self::assertInstanceOf(User::class, $response);
-        self::assertCount(0, $this->user->getAnimations());
-        self::assertFalse($this->user->getAnimations()->contains($value));
+        self::assertCount(0, $this->user->getContributions());
+        self::assertFalse($this->user->getContributions()->contains($value));
     }
 
     private function createFakeAnimation(): Animation

@@ -104,14 +104,14 @@ class User implements UserInterface
     private string $password;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Animation::class, mappedBy="users", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity=Animation::class, mappedBy="contributors", cascade={"persist"})
      * @Groups({"userRead", "userDetailRead"})
      */
-    private Collection $animations;
+    private Collection $contributions;
 
     public function __construct()
     {
-        $this->animations = new ArrayCollection();
+        $this->contributions = new ArrayCollection();
         $this->setRoles(['ROLE_USER']);
 
         $this->createdAt = new \DateTimeImmutable();
@@ -193,25 +193,25 @@ class User implements UserInterface
     /**
      * @return Collection|Animation[]
      */
-    public function getAnimations(): Collection
+    public function getContributions(): Collection
     {
-        return $this->animations;
+        return $this->contributions;
     }
 
-    public function addAnimation(Animation $animation): self
+    public function addContributions(Animation $animation): self
     {
-        if (!$this->animations->contains($animation)) {
-            $this->animations[] = $animation;
-            $animation->addUser($this);
+        if (!$this->contributions->contains($animation)) {
+            $this->contributions[] = $animation;
+            $animation->addContributor($this);
         }
 
         return $this;
     }
 
-    public function removeAnimation(Animation $animation): self
+    public function removeContributions(Animation $animation): self
     {
-        if ($this->animations->removeElement($animation)) {
-            $animation->removeUser($this);
+        if ($this->contributions->removeElement($animation)) {
+            $animation->removeContributor($this);
         }
 
         return $this;

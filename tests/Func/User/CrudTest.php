@@ -20,7 +20,7 @@ class CrudTest extends AbstractEndPoint
      * @group funcUser
      * @group crudUser
      */
-    public function testGetUsers(): void
+    public function testGetContributors(): void
     {
         $response = $this->getResponseFromRequest(
             Request::METHOD_GET,

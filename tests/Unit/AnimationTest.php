@@ -92,15 +92,15 @@ class AnimationTest extends TestCase
     {
         $value = new User();
 
-        $response = $this->animation->addUser($value);
+        $response = $this->animation->addContributor($value);
 
         self::assertInstanceOf(Animation::class, $response);
-        self::assertCount(1, $this->animation->getusers());
-        self::assertTrue($this->animation->getusers()->contains($value));
+        self::assertCount(1, $this->animation->getContributors());
+        self::assertTrue($this->animation->getContributors()->contains($value));
 
-        $response = $this->animation->removeUser($value);
+        $response = $this->animation->removeContributor($value);
         self::assertInstanceOf(Animation::class, $response);
-        self::assertCount(0, $this->animation->getusers());
-        self::assertFalse($this->animation->getusers()->contains($value));
+        self::assertCount(0, $this->animation->getContributors());
+        self::assertFalse($this->animation->getContributors()->contains($value));
     }
 }
