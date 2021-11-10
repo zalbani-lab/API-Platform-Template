@@ -88,7 +88,7 @@ class AnimationTest extends TestCase
     * @group unit
     * @group unitAnimation
     */
-    public function testAddAndDeleteUsersIntoAnAnimation(): void
+    public function testAddAndDeleteContributorIntoAnAnimation(): void
     {
         $value = new User();
 
@@ -102,5 +102,23 @@ class AnimationTest extends TestCase
         self::assertInstanceOf(Animation::class, $response);
         self::assertCount(0, $this->animation->getContributors());
         self::assertFalse($this->animation->getContributors()->contains($value));
+    }
+
+    /**
+     * @group unit
+     * @group unitAnimation
+     */
+    public function testAddAndDeleteAuthorIntoAnAnimation(): void
+    {
+        $value = new User();
+
+        $response = $this->animation->setAuthor($value);
+
+        self::assertInstanceOf(Animation::class, $response);
+        self::assertTrue($this->animation->getAuthor() === $value);
+
+        $response = $this->animation->setAuthor(null);
+        self::assertInstanceOf(Animation::class, $response);
+        self::assertFalse($this->animation->getAuthor() === $value);
     }
 }

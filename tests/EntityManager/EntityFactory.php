@@ -8,8 +8,7 @@ use App\Tests\EntityManager\Entity\Animation\AnimationManager;
 use App\Tests\EntityManager\Entity\EmailManager;
 use App\Tests\EntityManager\Entity\LogManager;
 use App\Tests\EntityManager\Entity\Media\MediaManager;
-use App\Tests\EntityManager\Entity\Role\RoleManager;
-use App\Tests\EntityManager\Entity\TypeManager;
+use App\Tests\EntityManager\Entity\CategoryManager;
 use App\Tests\EntityManager\Entity\User\UserManager;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
@@ -33,6 +32,9 @@ class EntityFactory
                 break;
             case 'animation':
                 $response = new AnimationManager($this->objectManager);
+                break;
+            case 'category':
+                $response = new CategoryManager($this->objectManager);
                 break;
             case 'log':
                 $response = new LogManager($this->objectManager);

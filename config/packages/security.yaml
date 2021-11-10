@@ -14,6 +14,13 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+        users:
+            pattern: ^/api/users
+            methods: [ GET, PUT, PATCH, DELETE ]
+            stateless: true
+            guard:
+                authenticators:
+                    - lexik_jwt_authentication.jwt_token_authenticator
         login:
             pattern: ^/api/login
             stateless: true
@@ -36,16 +43,16 @@ security:
             guard:
                 authenticators:
                     - lexik_jwt_authentication.jwt_token_authenticator
-        users:
-            pattern: ^/api/users
-            methods: [GET, PUT, PATCH, DELETE]
+        animations:
+            pattern: ^/api/animations
+            methods: [POST, PUT, PATCH, DELETE]
             stateless: true
             guard:
                 authenticators:
                     - lexik_jwt_authentication.jwt_token_authenticator
-        animations:
-            pattern: ^/api/animations
-            methods: [POST, PUT, PATCH, DELETE]
+        category:
+            pattern: ^/api/categories
+            methods: [ POST, PUT, PATCH, DELETE ]
             stateless: true
             guard:
                 authenticators:

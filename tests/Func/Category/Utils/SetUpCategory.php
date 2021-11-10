@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\Tests\Func\Animation\Utils;
+namespace App\Tests\Func\Category\Utils;
 
 use App\Tests\EntityManager\EntityFactory;
 use App\Tests\EntityManager\TestEntityManagerInterface;
 
-trait SetUpAnimation
+trait SetUpCategory
 {
-    protected object $animation;
-    protected TestEntityManagerInterface $animationManager;
+    protected object $category;
+    protected TestEntityManagerInterface $categoryManager;
     protected TestEntityManagerInterface $userManager;
     protected string $randomPayload;
 
@@ -21,12 +21,17 @@ trait SetUpAnimation
     protected function setUp(): void
     {
         $factory = new EntityFactory($this->getEntityManager(), $this->getSecurityEncoder());
-        $this->animationManager = $factory->create('animation');
-        $this->animation = $this->animationManager->createOne();
-        $this->randomPayload = $this->animationManager->getRandomPayload();
+        $this->categoryManager = $factory->create('category');
+        $this->category = $this->categoryManager->createOne();
+        $this->randomPayload = $this->categoryManager->getRandomPayload();
 
         $this->userManager = $factory->create('user');
-        $this->user = $this->userManager->createOne();
+
+        $userCreationOption = [
+            'role' => 'ADMIN',
+        ];
+
+        $this->user = $this->userManager->createOne($userCreationOption);
         $this->userLoginCredential = $this->userManager->getLoginInformation($this->user->getEmail(), $this->user->getPassword());
     }
 }

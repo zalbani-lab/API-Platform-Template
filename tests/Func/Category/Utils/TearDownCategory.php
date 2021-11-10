@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Tests\Func\Animation\Utils;
+namespace App\Tests\Func\Category\Utils;
 
-trait TearDownAnimation
+trait TearDownCategory
 {
     /* This function tearDown interact directly the database via doctrine */
     protected function tearDown(): void
     {
-        $this->animationManager->deleteOne($this->animation->getId());
+        $this->categoryManager->deleteOne($this->category->getId());
         $this->userManager->deleteOne($this->user->getId());
     }
 }

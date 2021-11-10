@@ -79,7 +79,7 @@ class UserTest extends TestCase
      * @group unit
      * @group unitUser
      */
-    public function testAddAndDeleteAnAnimationsToAUser(): void
+    public function testAddAndDeleteContributionsToAUser(): void
     {
         $value = $this->createFakeAnimation();
 
@@ -93,6 +93,26 @@ class UserTest extends TestCase
         self::assertInstanceOf(User::class, $response);
         self::assertCount(0, $this->user->getContributions());
         self::assertFalse($this->user->getContributions()->contains($value));
+    }
+
+    /**
+     * @group unit
+     * @group unitUser
+     */
+    public function testAddAndDeleteAnAnimationsToAUser(): void
+    {
+        $value = $this->createFakeAnimation();
+
+        $response = $this->user->addAnimation($value);
+
+        self::assertInstanceOf(User::class, $response);
+        self::assertCount(1, $this->user->getAnimations());
+        self::assertTrue($this->user->getAnimations()->contains($value));
+
+        $response = $this->user->removeAnimation($value);
+        self::assertInstanceOf(User::class, $response);
+        self::assertCount(0, $this->user->getAnimations());
+        self::assertFalse($this->user->getAnimations()->contains($value));
     }
 
     private function createFakeAnimation(): Animation

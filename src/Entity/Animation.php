@@ -81,7 +81,7 @@ class Animation
 
     /**
      * @ORM\ManyToOne(targetEntity=Media::class, inversedBy="animations")
-         * @Groups({"animationWrite", "animationRead", "alwaysDisplay"})
+     * @Groups({"animationWrite", "animationRead", "alwaysDisplay"})
      */
     private ?Media $image;
 
@@ -103,6 +103,12 @@ class Animation
      * @Groups({"animationRead"})
      */
     private ?User $author;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="animations")
+     * @Groups({"animationRead"})
+     */
+    private ?Category $category;
 
     public function __construct()
     {
@@ -218,6 +224,18 @@ class Animation
     public function setAuthor(?User $author): self
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }

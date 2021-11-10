@@ -2,31 +2,29 @@
 
 declare(strict_types=1);
 
-namespace App\Tests\Func\Animation;
-
-/* Trait importation */
+namespace App\Tests\Func\Category;
 
 use App\Tests\Func\AbstractEndPoint;
-use App\Tests\Func\Animation\Utils\SetUpAnimation;
-use App\Tests\Func\Animation\Utils\TearDownAnimation;
+use App\Tests\Func\Category\Utils\SetUpCategory;
+use App\Tests\Func\Category\Utils\TearDownCategory;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class CrudTest extends AbstractEndPoint
 {
-    use SetUpAnimation;
-    use TearDownAnimation;
+    use SetUpCategory;
+    use TearDownCategory;
 
     /**
      * @group func
-     * @group funcAnimation
-     * @group crudAnimation
+     * @group funcCategory
+     * @group crudCategory
      */
-    public function testGetAnimations(): void
+    public function testGetCategories(): void
     {
         $response = $this->getResponseFromRequest(
             Request::METHOD_GET,
-            '/api/animations'
+            '/api/categories'
         );
         $responseContent = $response->getContent();
 
@@ -38,14 +36,14 @@ class CrudTest extends AbstractEndPoint
 
     /**
      * @group func
-     * @group funcAnimation
-     * @group crudAnimation
+     * @group funcCategory
+     * @group crudCategory
      */
-    public function testPostAnimation(): void
+    public function testPostCategory(): void
     {
         $response = $this->getResponseFromRequest(
             Request::METHOD_POST,
-            '/api/animations',
+            '/api/categories',
             $this->randomPayload,
             [],
             true,
@@ -58,20 +56,20 @@ class CrudTest extends AbstractEndPoint
         self::assertJson($responseContent);
         self::assertNotEmpty($responseDecoded);
 
-        /* Delete the Animation previously created */
-        $this->animationManager->deleteOne($responseDecoded['id']);
+        /* Delete the Category previously created */
+        $this->categoryManager->deleteOne($responseDecoded['id']);
     }
 
     /**
      * @group func
-     * @group funcAnimation
-     * @group crudAnimation
+     * @group funcCategory
+     * @group crudCategory
      */
-    public function testGetOneAnimation(): void
+    public function testGetOneCategory(): void
     {
         $response = $this->getResponseFromRequest(
             Request::METHOD_GET,
-            '/api/animations/'.$this->animation->getId(),
+            '/api/categories/'.$this->category->getId(),
             '',
             [],
             false
@@ -87,14 +85,14 @@ class CrudTest extends AbstractEndPoint
 
     /**
      * @group func
-     * @group funcAnimation
-     * @group crudAnimation
+     * @group funcCategory
+     * @group crudCategory
      */
-    public function testPatchAnimation(): void
+    public function testPatchCategory(): void
     {
         $response = $this->getResponseFromRequest(
             Request::METHOD_PATCH,
-            '/api/animations/'.$this->animation->getId(),
+            '/api/categories/'.$this->category->getId(),
             $this->randomPayload,
             [],
             true,
@@ -111,14 +109,14 @@ class CrudTest extends AbstractEndPoint
 
     /**
      * @group func
-     * @group funcAnimation
-     * @group crudAnimation
+     * @group funcCategory
+     * @group crudCategory
      */
-    public function testPutAnimation(): void
+    public function testPutCategory(): void
     {
         $response = $this->getResponseFromRequest(
             Request::METHOD_PUT,
-            '/api/animations/'.$this->animation->getId(),
+            '/api/categories/'.$this->category->getId(),
             $this->randomPayload,
             [],
             true,
@@ -135,14 +133,14 @@ class CrudTest extends AbstractEndPoint
 
     /**
      * @group func
-     * @group funcAnimation
-     * @group crudAnimation
+     * @group funcCategory
+     * @group crudCategory
      */
-    public function testDeleteAnimation(): void
+    public function testDeleteCategory(): void
     {
         $response = $this->getResponseFromRequest(
             Request::METHOD_DELETE,
-            '/api/animations/'.$this->animation->getId(),
+            '/api/categories/'.$this->category->getId(),
             '',
             [],
             true,
