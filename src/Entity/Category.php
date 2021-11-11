@@ -55,7 +55,7 @@ class Category
     use Timestamps;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      * @Groups({"animationRead", "categoryRead", "categoryWrite"})
      */
     private string $name;

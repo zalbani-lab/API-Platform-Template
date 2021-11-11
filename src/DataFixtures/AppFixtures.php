@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\DataFixtures;
 
+use App\DataFixtures\DependenciesFixtures\CategoryFixtures;
 use App\DataFixtures\DependenciesFixtures\MediaFixtures;
 use App\Entity\Animation;
+use App\Entity\Category;
 use App\Entity\Media;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -30,6 +32,7 @@ class AppFixtures extends Fixture implements DependentFixtureInterface
     {
         return [
             MediaFixtures::class,
+            CategoryFixtures::class
         ];
     }
 
@@ -57,13 +60,14 @@ class AppFixtures extends Fixture implements DependentFixtureInterface
     private function createAnimations(User $userAuthor, int $animationNumber): void
     {
         for ($j = 0; $j < $animationNumber; ++$j) {
-            $Animation = (new Animation())->setAuthor($userAuthor)
+            $animation = (new Animation())->setAuthor($userAuthor)
                 ->setImage($this->getARandomMedia())
                 ->setTitle($this->faker->text(20))
                 ->setShortDescription($this->faker->realText(100))
-                ->setLongDescription($this->faker->realText(300));
+                ->setLongDescription($this->faker->realText(300))
+                ->setCategory($this->getARandomCategory());
 
-            $this->manager->persist($Animation);
+            $this->manager->persist($animation);
         }
     }
 
@@ -77,5 +81,11 @@ class AppFixtures extends Fixture implements DependentFixtureInterface
     {
         return $this->manager->getRepository(Media::class)
             ->findOneByTitle(MediaFixtures::IMAGE_NAME[random_int(0, (count(MediaFixtures::IMAGE_NAME) - 1))]);
+    }
+
+    private function getARandomCategory(): ?Category
+    {
+        return $this->manager->getRepository(Category::class)
+            ->findOneByName(CategoryFixtures::CATEGORIES[random_int(0, (count(CategoryFixtures::CATEGORIES) - 1))]);
     }
 }
