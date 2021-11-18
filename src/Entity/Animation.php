@@ -14,6 +14,7 @@ use App\Repository\AnimationRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\Boolean;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
@@ -110,11 +111,23 @@ class Animation
      */
     private ?Category $category;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private bool $display;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private ?\DateTimeInterface $displayDate;
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
         $this->contributors = new ArrayCollection();
         $this->dateStart = null;
+        $this->displayDate = null;
+        $this->display = false;
         $this->dateEnd = null;
         $this->author = null;
     }
@@ -236,6 +249,30 @@ class Animation
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getDisplay(): ?bool
+    {
+        return $this->display;
+    }
+
+    public function setDisplay(bool $display): self
+    {
+        $this->display = $display;
+
+        return $this;
+    }
+
+    public function getDisplayDate(): ?\DateTimeInterface
+    {
+        return $this->displayDate;
+    }
+
+    public function setDisplayDate(?\DateTimeInterface $displayDate): self
+    {
+        $this->displayDate = $displayDate;
 
         return $this;
     }

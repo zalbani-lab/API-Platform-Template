@@ -94,7 +94,7 @@ $ bin/console cron:strop
 Custom command. Used for CRONs
 ```bash
 # Publish awaiting animations
-$ bin/console app:publish-awaiting-animations
+$ bin/console app:display-awaiting-animations
 ```
 
 ## Organisation

@@ -63,6 +63,8 @@ class AppFixtures extends Fixture implements DependentFixtureInterface
             $animation = (new Animation())->setAuthor($userAuthor)
                 ->setImage($this->getARandomMedia())
                 ->setTitle($this->faker->text(20))
+                ->setDisplay($this->faker->boolean)
+                ->setDisplayDate($this->faker->dateTime)
                 ->setShortDescription($this->faker->realText(100))
                 ->setLongDescription($this->faker->realText(300))
                 ->setCategory($this->getARandomCategory());

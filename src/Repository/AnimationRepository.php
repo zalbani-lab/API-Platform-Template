@@ -24,20 +24,16 @@ class AnimationRepository extends ServiceEntityRepository
     /**
      * @return Animation[] Returns an array of Animation objects
      */
-    public function findAwaitingToPublishUntilToday()
+    public function findAwaitingToDisplayUntilToday()
     {
-        $animationStatusName = 'EN ATTENTE DE PUBLICATION';
         $todayDate = new \DateTime();
-        // Cette requete retourne la liste des animations ayant pour status : En attente de publications
-        // et qui ont une date de publication inferieur ou egal a la date d'aujourd'hui
+        // Cette requete retourne la liste des animations ayant un display a false et une displayDate inferieur ou egal a la date d'aujourd'hui
 
-        // TO-DO : Ajouter la vrai column en base de donnee correspondant a la date de publication voulu
         return $this->createQueryBuilder('animation')
-            ->leftJoin('animation.status', 'animation_status')
-            ->andWhere('animation.publicationDate <= :valDate')
+            ->andWhere('animation.display = :valDisplay')
+            ->setParameter('valDisplay', false)
+            ->andWhere('animation.displayDate <= :valDate')
             ->setParameter('valDate', $todayDate)
-            ->andWhere('animation_status.name = :valStatus')
-            ->setParameter('valStatus', $animationStatusName)
             ->orderBy('animation.id', 'ASC')
             ->getQuery()
             ->getResult()
